@@ -8,11 +8,12 @@ Training the Linear Regression model
 Saving the trained model using Pickle
 Building an interactive Streamlit app for predictions
 
-🛠️ Tech Stack
+🛠️ Technical Skills
 
 Python
 Scikit-learn
 NumPy
+Pandas
 Streamlit
 Pickle
 
