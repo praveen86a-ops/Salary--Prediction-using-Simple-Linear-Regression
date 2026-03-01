@@ -1,9 +1,7 @@
 # import require library 
 
 import numpy as np 	
-
 import matplotlib.pyplot as plt
-
 import pandas as pd	
 
 # import the dataset
@@ -52,27 +50,21 @@ plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
 
-
-# slope is generrated from linear regress algorith which fit to dataset 
-m = regressor.coef_
-
-# interceppt also generatre by model. 
-c = regressor.intercept_
-
-# predict or forcast the future the data which we not trained before 
-y_12 = 9312 * 12 + 26780
-
-y_20 = 9312 * 20 + 26780
+# Predict salary for 12 and 20 years of experience using the trained model
+y_12 = regressor.predict([[12]])
+y_20 = regressor.predict([[20]])
+print(f"Predicted salary for 12 years of experience: ${y_12[0]:,.2f}")
+print(f"Predicted salary for 20 years of experience: ${y_20[0]:,.2f}")
 
 
 # to check overfitting  ( low bias high variance)
 bias = regressor.score(X_train, y_train)
-bias
+print(bias)
 
 
 # to check underfitting (high bias low variance)
 variance = regressor.score(X_test,y_test)
-variance
+print(variance)
 
 
 # deployment in flask & html 
@@ -88,4 +80,5 @@ with open(filename, 'wb') as file:
     pickle.dump(regressor, file)
 
 print("Model has been pickled and saved as linear_regression_model.pkl")
+
 
